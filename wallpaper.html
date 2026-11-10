@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MOST UNIQUE WALLPAPER</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sticky header + category chips + 2-up phone-ratio wallpaper grid; tap opens a full-screen viewer */
+:root{
+  --bg:#f2f5f3; --fg:#13201c; --muted:#5b6c66; --surface:#ffffff; --line:#d5deda;
+  --accent:#0f7a66; --on-accent:#ffffff;
+  --scrim:#070b0a; --on-scrim:#f2f7f5; --scrim-muted:#9db0a9;
+  --font:'Hind Siliguri','Noto Sans Bengali','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c1311; --fg:#e6efec; --muted:#93a59f; --surface:#16201d; --line:#26332f;
+    --accent:#3fc3a6; --on-accent:#06201a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c1311; --fg:#e6efec; --muted:#93a59f; --surface:#16201d; --line:#26332f;
+  --accent:#3fc3a6; --on-accent:#06201a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--fg); font-family:var(--font); font-size:16px; line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:20px 40px;
+}
+.wrap{max-width:960px; margin:0 auto}
+header h1{font-size:1.75rem; line-height:1.2; margin:0 0 4px; font-weight:700; text-wrap:balance}
+header p{margin:0; color:var(--muted); font-size:.95rem}
+.chips{
+  display:flex; gap:8px; overflow-x:auto; padding:16px 0 14px; margin:0;
+  scrollbar-width:none;
+}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:0 0 auto; font:inherit; font-size:.95rem; font-weight:500; padding:8px 16px; border-radius:999px;
+  border:1px solid var(--line); background:var(--surface); color:var(--fg); cursor:pointer;
+}
+.chip[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+.chip:focus-visible,.card:focus-visible,.vbtn:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+.grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px}
+@media (min-width:560px){.grid{grid-template-columns:repeat(3, minmax(0,1fr))}}
+@media (min-width:820px){.grid{grid-template-columns:repeat(4, minmax(0,1fr))}}
+.card{
+  display:flex; flex-direction:column; gap:8px; padding:0; border:0; background:none; font:inherit; color:inherit;
+  text-align:left; cursor:pointer; min-width:0;
+}
+.card canvas{width:100%; height:auto; display:block; border-radius:16px; background:var(--surface); aspect-ratio:360/780}
+.card span{font-size:.92rem; font-weight:500; padding:0 2px}
+.card small{display:block; color:var(--muted); font-size:.78rem; font-weight:400}
+.addrow{margin:0 0 16px; position:relative}
+.addrow label{display:inline-block}
+.sr{position:absolute; left:0; top:0; width:1px; height:1px; opacity:0; overflow:hidden}
+.chip.add{border-color:var(--accent); color:var(--accent); font-weight:600}
+.note{margin:22px 0 0; color:var(--muted); font-size:.85rem}
+
+#viewer{
+  position:fixed; inset:0; z-index:50; background:var(--scrim); color:var(--on-scrim);
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  padding:calc(12px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(14px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+.vtop{display:flex; width:100%; align-items:center; justify-content:space-between; gap:12px}
+.vtop b{font-size:1.05rem; font-weight:600}
+.vbtn{
+  font:inherit; font-size:1.05rem; min-width:44px; height:44px; padding:0 16px; border-radius:999px; cursor:pointer;
+  border:1px solid #3a4743; background:#141c1a; color:var(--on-scrim);
+}
+.vstage{flex:1 1 auto; min-height:0; width:100%; display:flex; align-items:center; justify-content:center}
+.vstage img{max-height:100%; max-width:100%; border-radius:18px; display:block; object-fit:contain; -webkit-touch-callout:default}
+.vstage p{color:var(--scrim-muted); margin:0}
+.vnav{display:flex; width:100%; gap:10px; align-items:center}
+.vnav .vbtn{flex:0 0 auto}
+.vhint{flex:1 1 auto; min-width:0; font-size:.82rem; line-height:1.4; color:var(--scrim-muted); text-align:center}
+@media (prefers-reduced-motion:no-preference){.card canvas{transition:transform .15s}.card:active canvas{transform:scale(.98)}}
+.back{display:inline-block; margin:0 0 12px; color:var(--accent); font-weight:600; text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="back" href="index.html">← সব অ্যাপ</a>
+  <header>
+    <h1>MOST UNIQUE WALLPAPER</h1>
+    <p>প্রকৃতি, গ্রেডিয়েন্ট, ইসলামিক আর গাড়ি-বাইক। পছন্দের ছবিতে চাপ দিন।</p>
+  </header>
+  <div class="chips" id="chips" role="group" aria-label="ধরন বাছাই"></div>
+  <div class="addrow"><label class="chip add" for="file" id="addbtn" tabindex="0">＋ নিজের ছবি যোগ করুন</label><input type="file" id="file" accept="image/*" multiple class="sr"></div>
+  <div class="grid" id="grid"></div>
+  <p class="note">ছবিগুলো এই পেজেই আঁকা হয়, তাই কোনো কপিরাইট সমস্যা নেই। ছবির মাপ ১০৮০ × ২৩৪০।</p>
+</div>
+
+<div id="viewer" hidden role="dialog" aria-modal="true" aria-label="ওয়ালপেপার দেখুন">
+  <div class="vtop"><b id="vname"></b><span style="display:flex;gap:8px"><button class="vbtn" id="vdel" hidden>মুছুন</button><button class="vbtn" id="vclose" aria-label="বন্ধ করুন">✕ বন্ধ</button></span></div>
+  <div class="vstage" id="vstage"><p>ছবি তৈরি হচ্ছে…</p></div>
+  <div class="vnav">
+    <button class="vbtn" id="vprev" aria-label="আগের ছবি">‹</button>
+    <div class="vhint">ছবিটি আঙুল দিয়ে চেপে ধরে রাখুন, তারপর “ছবি সংরক্ষণ করুন” চাপুন। এরপর গ্যালারি থেকে ওয়ালপেপার হিসেবে সেট করুন।</div>
+    <button class="vbtn" id="vnext" aria-label="পরের ছবি">›</button>
+  </div>
+</div>
+
+<script>
+const W=1080,H=2340,PI=Math.PI;
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function star(c,cx,cy,R,r,n){c.beginPath();for(let i=0;i<n*2;i++){const a=-PI/2+i*PI/n,d=i%2?r:R;c[i?'lineTo':'moveTo'](cx+Math.cos(a)*d,cy+Math.sin(a)*d)}c.closePath();c.fill()}
+function glow(c,x,y,r,col,k){const g=c.createRadialGradient(x,y,r*.2,x,y,r*k);g.addColorStop(0,col+'aa');g.addColorStop(1,col+'00');c.fillStyle=g;c.fillRect(0,0,W,H)}
+
+/* ---------- প্রকৃতি ---------- */
+function hillY(x,base,amp,f,ph){return base+Math.sin(x*f+ph)*amp+Math.sin(x*f*2.3+ph*1.7)*amp*.4}
+function drawNature(c,p){
+  const r=rng(p.seed);
+  let g=c.createLinearGradient(0,0,0,H*.75);
+  p.sky.forEach((s,i)=>g.addColorStop(i/(p.sky.length-1),s));
+  c.fillStyle=g;c.fillRect(0,0,W,H);
+  if(p.stars){c.fillStyle='#ffffff';for(let i=0;i<150;i++){c.globalAlpha=.3+r()*.7;c.beginPath();c.arc(r()*W,r()*H*.5,1+r()*2.2,0,PI*2);c.fill()}c.globalAlpha=1}
+  const [sx,sy,sr,sc]=p.sun;
+  glow(c,sx,sy,sr,sc,4);
+  c.fillStyle=sc;c.beginPath();c.arc(sx,sy,sr,0,PI*2);c.fill();
+  p.hills.forEach((col,i)=>{
+    const base=H*(.56+i*.09),amp=[110,90,70][i],f=.0036+i*.0018,ph=p.seed+i*2.1;
+    c.fillStyle=col;c.beginPath();c.moveTo(0,H);
+    for(let x=0;x<=W;x+=10)c.lineTo(x,hillY(x,base,amp,f,ph));
+    c.lineTo(W,H);c.closePath();c.fill();
+    if(p.trees&&i===p.hills.length-1){
+      c.fillStyle=p.trees;
+      for(let k=0;k<26;k++){
+        const x=r()*W,y=hillY(x,base,amp,f,ph)+8,h=110+r()*150,w=h*.42;
+        c.beginPath();c.moveTo(x,y-h);c.lineTo(x+w/2,y-h*.35);c.lineTo(x-w/2,y-h*.35);c.closePath();c.fill();
+        c.beginPath();c.moveTo(x,y-h*.7);c.lineTo(x+w*.7,y);c.lineTo(x-w*.7,y);c.closePath();c.fill();
+      }
+    }
+    if(i===0){const m=c.createLinearGradient(0,base-60,0,base+260);m.addColorStop(0,p.mist+'00');m.addColorStop(1,p.mist+'66');c.fillStyle=m;c.fillRect(0,base-60,W,320)}
+  });
+}
+
+/* ---------- গ্রেডিয়েন্ট ---------- */
+function drawGrad(c,p){
+  const cx=W/2,cy=H/2,len=Math.hypot(W,H)/2,dx=Math.cos(p.a)*len,dy=Math.sin(p.a)*len;
+  const g=c.createLinearGradient(cx-dx,cy-dy,cx+dx,cy+dy);
+  p.stops.forEach((s,i)=>g.addColorStop(i/(p.stops.length-1),s));
+  c.fillStyle=g;c.fillRect(0,0,W,H);
+  p.blobs.forEach(([x,y,rad,col])=>{const b=c.createRadialGradient(x,y,0,x,y,rad);b.addColorStop(0,col+'88');b.addColorStop(1,col+'00');c.fillStyle=b;c.fillRect(0,0,W,H)});
+}
+
+/* ---------- ইসলামিক ---------- */
+function drawIslamic(c,p){
+  const r=rng(p.seed);
+  let g=c.createRadialGradient(W/2,H*.3,100,W/2,H*.5,H*.8);
+  g.addColorStop(0,p.bg[0]);g.addColorStop(1,p.bg[1]);
+  c.fillStyle=g;c.fillRect(0,0,W,H);
+  c.strokeStyle=p.line;c.lineWidth=3;c.globalAlpha=.24;
+  const cell=135;
+  for(let y=0;y<H;y+=cell)for(let x=0;x<W+cell;x+=cell){
+    c.save();c.translate(x+cell/2,y+cell/2);
+    c.strokeRect(-46,-46,92,92);c.rotate(PI/4);c.strokeRect(-46,-46,92,92);
+    c.beginPath();c.arc(0,0,20,0,PI*2);c.stroke();c.restore();
+  }
+  c.globalAlpha=1;
+  const f=c.createLinearGradient(0,H*.42,0,H*.74);f.addColorStop(0,p.bg[1]+'00');f.addColorStop(1,p.bg[1]);
+  c.fillStyle=f;c.fillRect(0,H*.4,W,H*.6);
+  c.fillStyle=p.gold;
+  for(let i=0;i<40;i++){c.globalAlpha=.25+r()*.6;c.beginPath();c.arc(r()*W,r()*H*.3,1+r()*2.4,0,PI*2);c.fill()}
+  c.globalAlpha=1;
+  const mx=W/2,my=470,mr=150;
+  glow(c,mx,my,mr,p.gold,3.2);
+  c.save();c.beginPath();c.arc(mx,my,mr,0,PI*2);c.clip();
+  c.beginPath();c.rect(0,0,W,H);c.arc(mx+62,my-22,mr*.82,0,PI*2);
+  c.fillStyle=p.gold;c.fill('evenodd');c.restore();
+  c.fillStyle=p.gold;star(c,mx+98,my-30,34,14,5);
+  c.fillStyle=p.sil;
+  c.fillRect(mx-440,H-440,880,440);
+  c.fillRect(mx-300,H-520,600,100);
+  c.beginPath();c.ellipse(mx,H-520,230,210,0,PI,PI*2);c.fill();
+  c.fillRect(mx-4,H-770,8,60);c.beginPath();c.arc(mx,H-775,12,0,PI*2);c.fill();
+  [-1,1].forEach(s=>{
+    c.beginPath();c.ellipse(mx+s*300,H-440,95,95,0,PI,PI*2);c.fill();
+    const x=mx+s*410;
+    c.fillRect(x-30,H-900,60,900);c.fillRect(x-46,H-700,92,18);
+    c.beginPath();c.moveTo(x-36,H-900);c.lineTo(x,H-1015);c.lineTo(x+36,H-900);c.closePath();c.fill();
+    c.beginPath();c.arc(x,H-1020,9,0,PI*2);c.fill();
+  });
+  c.fillStyle=p.gold;c.globalAlpha=.85;
+  for(let i=-2;i<=2;i++){const x=mx+i*90;c.beginPath();c.moveTo(x-22,H-290);c.lineTo(x-22,H-360);c.arc(x,H-360,22,PI,0);c.lineTo(x+22,H-290);c.closePath();c.fill()}
+  c.globalAlpha=1;
+}
+
+/* ---------- গাড়ি ও বাইক ---------- */
+function drawCar(c,p){
+  c.fillStyle='rgba(0,0,0,.4)';c.beginPath();c.ellipse(0,4,440,24,0,0,PI*2);c.fill();
+  let g=c.createLinearGradient(405,0,1400,0);g.addColorStop(0,p.light+'88');g.addColorStop(1,p.light+'00');
+  c.fillStyle=g;c.beginPath();c.moveTo(400,-95);c.lineTo(1400,-270);c.lineTo(1400,40);c.closePath();c.fill();
+  c.fillStyle=p.car;c.beginPath();
+  c.moveTo(-410,-30);c.lineTo(-410,-100);c.quadraticCurveTo(-410,-135,-350,-145);c.lineTo(-210,-155);
+  c.lineTo(-120,-255);c.lineTo(140,-255);c.lineTo(265,-155);c.lineTo(350,-140);
+  c.quadraticCurveTo(410,-128,410,-85);c.lineTo(410,-30);c.closePath();c.fill();
+  c.fillStyle=p.sky[1];c.globalAlpha=.85;
+  c.beginPath();c.moveTo(-100,-240);c.lineTo(-170,-163);c.lineTo(-10,-163);c.lineTo(-10,-240);c.closePath();c.fill();
+  c.beginPath();c.moveTo(10,-240);c.lineTo(10,-163);c.lineTo(215,-163);c.lineTo(130,-240);c.closePath();c.fill();
+  c.globalAlpha=1;
+  c.strokeStyle=p.accent;c.lineWidth=6;c.beginPath();c.moveTo(-405,-98);c.lineTo(405,-98);c.stroke();
+  c.fillStyle='#ff3b3b';c.fillRect(-412,-112,10,28);
+  c.fillStyle=p.light;c.fillRect(398,-112,14,24);
+  [-250,255].forEach(x=>{
+    c.fillStyle='#050505';c.beginPath();c.arc(x,-70,70,0,PI*2);c.fill();
+    c.fillStyle='#1d1d1d';c.beginPath();c.arc(x,-70,38,0,PI*2);c.fill();
+    c.fillStyle=p.accent;c.beginPath();c.arc(x,-70,12,0,PI*2);c.fill();
+  });
+}
+function drawBike(c,p){
+  c.fillStyle='rgba(0,0,0,.4)';c.beginPath();c.ellipse(0,4,430,22,0,0,PI*2);c.fill();
+  let g=c.createLinearGradient(260,0,1300,0);g.addColorStop(0,p.light+'88');g.addColorStop(1,p.light+'00');
+  c.fillStyle=g;c.beginPath();c.moveTo(225,-290);c.lineTo(1300,-480);c.lineTo(1300,-60);c.closePath();c.fill();
+  c.lineCap='round';c.lineJoin='round';
+  [-250,250].forEach(x=>{
+    c.strokeStyle=p.car;c.lineWidth=26;c.beginPath();c.arc(x,-100,88,0,PI*2);c.stroke();
+    c.strokeStyle=p.accent;c.lineWidth=4;c.beginPath();c.arc(x,-100,68,0,PI*2);c.stroke();
+    c.fillStyle=p.accent;c.beginPath();c.arc(x,-100,12,0,PI*2);c.fill();
+  });
+  c.strokeStyle=p.car;c.lineWidth=18;
+  c.beginPath();c.moveTo(-250,-100);c.lineTo(-60,-150);c.stroke();
+  c.beginPath();c.moveTo(250,-100);c.lineTo(185,-300);c.lineTo(140,-335);c.lineTo(85,-338);c.stroke();
+  c.beginPath();c.moveTo(-60,-110);c.lineTo(-320,-125);c.stroke();
+  c.fillStyle=p.car;
+  c.fillRect(-70,-205,190,115);
+  c.beginPath();c.moveTo(-30,-250);c.quadraticCurveTo(40,-335,150,-292);c.lineTo(130,-225);c.lineTo(-40,-210);c.closePath();c.fill();
+  c.beginPath();c.moveTo(-235,-232);c.quadraticCurveTo(-120,-272,-30,-250);c.lineTo(-40,-208);c.lineTo(-225,-198);c.closePath();c.fill();
+  c.strokeStyle=p.accent;c.lineWidth=5;c.beginPath();c.moveTo(-20,-232);c.quadraticCurveTo(50,-300,135,-272);c.stroke();
+  c.fillStyle=p.light;c.beginPath();c.arc(218,-292,20,0,PI*2);c.fill();
+  c.fillStyle='#ff3b3b';c.fillRect(-250,-232,14,12);
+}
+function drawRide(c,p){
+  const hz=H*.62,r=rng(p.seed);
+  let g=c.createLinearGradient(0,0,0,hz);
+  p.sky.forEach((s,i)=>g.addColorStop(i/(p.sky.length-1),s));
+  c.fillStyle=g;c.fillRect(0,0,W,hz);
+  glow(c,W/2,hz-60,230,p.sun,3);
+  c.fillStyle=p.sun;c.beginPath();c.arc(W/2,hz-60,230,0,PI*2);c.fill();
+  c.fillStyle=p.far;
+  for(let x=-20;x<W;){const w=50+r()*60,h=80+r()*240;c.fillRect(x,hz-h,w,h+2);x+=w+4}
+  c.fillStyle=p.ground;c.fillRect(0,hz,W,H-hz);
+  c.fillStyle=p.road;c.beginPath();c.moveTo(W/2-30,hz);c.lineTo(W/2+30,hz);c.lineTo(W+260,H);c.lineTo(-260,H);c.closePath();c.fill();
+  c.strokeStyle=p.line;c.globalAlpha=.55;c.lineWidth=4;
+  c.beginPath();c.moveTo(W/2-30,hz);c.lineTo(-200,H);c.moveTo(W/2+30,hz);c.lineTo(W+200,H);c.stroke();
+  c.globalAlpha=.9;c.fillStyle=p.line;
+  for(let i=0;i<9;i++){
+    const t0=Math.pow(i/9,1.9),t1=Math.pow((i+.5)/9,1.9),y0=hz+(H-hz)*t0,y1=hz+(H-hz)*t1;
+    const w0=3+t0*34,w1=3+t1*34;
+    c.beginPath();c.moveTo(W/2-w0/2,y0);c.lineTo(W/2+w0/2,y0);c.lineTo(W/2+w1/2,y1);c.lineTo(W/2-w1/2,y1);c.closePath();c.fill();
+  }
+  c.globalAlpha=1;
+  c.save();c.translate(W/2-10,H*.8);c.scale(.95,.95);
+  (p.v==='bike'?drawBike:drawCar)(c,p);
+  c.restore();
+}
+
+/* ---------- তালিকা ---------- */
+const SUN=(x,y,r,col)=>[x,y,r,col];
+const ITEMS=[
+  {cat:'nature',name:'সোনালি সকাল',fn:drawNature,p:{seed:3,sky:['#2b4a8a','#e98a7a','#ffd7a0'],sun:SUN(W*.5,H*.42,110,'#fff1c4'),hills:['#7f6f9a','#4e5f7a','#2c4a4a'],mist:'#ffd7a0'}},
+  {cat:'nature',name:'গভীর বন',fn:drawNature,p:{seed:7,sky:['#0f2a2a','#2f6b5e','#bfe3c0'],sun:SUN(W*.3,H*.38,90,'#f4ffd9'),hills:['#3f8a6b','#246a50','#0f3d33'],trees:'#0b2c25',mist:'#bfe3c0'}},
+  {cat:'nature',name:'গোধূলির আকাশ',fn:drawNature,p:{seed:11,sky:['#3a1c5c','#c4486f','#ffb36b'],sun:SUN(W*.7,H*.45,120,'#ffe3a8'),hills:['#6a3a6e','#3e2556','#1d1236'],mist:'#ffb36b'}},
+  {cat:'nature',name:'নীল দিগন্ত',fn:drawNature,p:{seed:5,sky:['#6fc3ff','#bfe8ff','#f6fbff'],sun:SUN(W*.5,H*.3,100,'#ffffff'),hills:['#6aa9d8','#3d82b8','#1e5b8c'],mist:'#f6fbff'}},
+  {cat:'nature',name:'কুয়াশা পাহাড়',fn:drawNature,p:{seed:9,sky:['#cfd8dc','#e8edef','#f6f4ef'],sun:SUN(W*.4,H*.35,80,'#ffffff'),hills:['#a9b6b8','#7d9094','#4f666b'],trees:'#34484c',mist:'#f6f4ef'}},
+  {cat:'nature',name:'তারাভরা রাত',fn:drawNature,p:{seed:13,stars:true,sky:['#050b1f','#14284f','#2d4a7a'],sun:SUN(W*.72,H*.22,70,'#f3f6ff'),hills:['#1b2f55','#101f3d','#08122a'],trees:'#050b1a',mist:'#2d4a7a'}},
+
+  {cat:'gradient',name:'সূর্যাস্ত',fn:drawGrad,p:{a:1.2,stops:['#ff5e62','#ff9966','#ffd194'],blobs:[[W*.2,H*.2,520,'#ffffff'],[W*.9,H*.85,650,'#b4125b']]}},
+  {cat:'gradient',name:'সাগরের গভীরে',fn:drawGrad,p:{a:1.45,stops:['#0f2027','#2c5364','#4ac29a'],blobs:[[W*.85,H*.15,500,'#7ef0d0'],[W*.1,H*.9,600,'#06141a']]}},
+  {cat:'gradient',name:'বেগুনি রাত',fn:drawGrad,p:{a:1.0,stops:['#1a0b3a','#5b2a86','#e0529c'],blobs:[[W*.8,H*.2,520,'#ff9ad5'],[W*.1,H*.7,600,'#0d0524']]}},
+  {cat:'gradient',name:'পুদিনা সবুজ',fn:drawGrad,p:{a:1.6,stops:['#0b3d2e','#1f8a70','#c6f6d5'],blobs:[[W*.2,H*.25,500,'#e9ffe9'],[W*.9,H*.8,600,'#04241b']]}},
+  {cat:'gradient',name:'আকাশি নীল',fn:drawGrad,p:{a:1.3,stops:['#2193b0','#6dd5ed','#f7fbff'],blobs:[[W*.75,H*.2,500,'#ffffff'],[W*.15,H*.85,600,'#1a6f8a']]}},
+  {cat:'gradient',name:'কালো ও সোনালি',fn:drawGrad,p:{a:1.5,stops:['#0a0a0a','#2a2118','#c9a45c'],blobs:[[W*.8,H*.85,600,'#f1d27a'],[W*.2,H*.15,500,'#3a2f22']]}},
+
+  {cat:'islamic',name:'সবুজ ও সোনালি',fn:drawIslamic,p:{seed:2,bg:['#0f5a45','#04231c'],line:'#e6c878',gold:'#f2d98a',sil:'#021410'}},
+  {cat:'islamic',name:'নীল ও রুপালি',fn:drawIslamic,p:{seed:4,bg:['#1b3a7a','#07122b'],line:'#cfe0ff',gold:'#e8eefc',sil:'#040a1a'}},
+  {cat:'islamic',name:'গভীর বেগুনি',fn:drawIslamic,p:{seed:6,bg:['#4a2a7a','#150a2e'],line:'#e0c8ff',gold:'#ffd88a',sil:'#0b0518'}},
+  {cat:'islamic',name:'কালো ও সোনালি',fn:drawIslamic,p:{seed:8,bg:['#2b2b2b','#050505'],line:'#d4af37',gold:'#f1d27a',sil:'#000000'}},
+  {cat:'islamic',name:'টিল সবুজ',fn:drawIslamic,p:{seed:10,bg:['#136f77','#041f24'],line:'#bff0ee',gold:'#ffe08a',sil:'#02171a'}},
+  {cat:'islamic',name:'মরুর ভোর',fn:drawIslamic,p:{seed:12,bg:['#b5651d','#3b1b08'],line:'#ffe3b3',gold:'#fff1c4',sil:'#1c0c04'}},
+
+  {cat:'ride',name:'সূর্যাস্তের পথে',fn:drawRide,p:{v:'car',seed:1,sky:['#2a1b4a','#c2456a','#ffb26b'],sun:'#ffd9a0',far:'#3a2150',ground:'#1a1024',road:'#241833',line:'#ffd9a0',car:'#0c0712',accent:'#ff7a59',light:'#fff0c4'}},
+  {cat:'ride',name:'নিয়ন রাত',fn:drawRide,p:{v:'car',seed:2,sky:['#050816','#1a1450','#7a2a8f'],sun:'#ff5fa8',far:'#120a33',ground:'#0a0820',road:'#120d2e',line:'#6ff0ff',car:'#05040d',accent:'#6ff0ff',light:'#ffffff'}},
+  {cat:'ride',name:'ভোরের রাস্তা',fn:drawRide,p:{v:'car',seed:3,sky:['#0f3d4a','#2a8a86','#f4e4b0'],sun:'#fff6d0',far:'#1c5258',ground:'#0d2a30',road:'#173a40',line:'#fff6d0',car:'#071a1e',accent:'#f4c95d',light:'#ffffff'}},
+  {cat:'ride',name:'সন্ধ্যার বাইক',fn:drawRide,p:{v:'bike',seed:4,sky:['#2a1b4a','#c2456a','#ffb26b'],sun:'#ffd9a0',far:'#3a2150',ground:'#1a1024',road:'#241833',line:'#ffd9a0',car:'#0c0712',accent:'#ff7a59',light:'#fff0c4'}},
+  {cat:'ride',name:'রাতের রাইড',fn:drawRide,p:{v:'bike',seed:5,sky:['#050816','#1a1450','#7a2a8f'],sun:'#ff5fa8',far:'#120a33',ground:'#0a0820',road:'#120d2e',line:'#6ff0ff',car:'#05040d',accent:'#6ff0ff',light:'#ffffff'}},
+  {cat:'ride',name:'ভোরের রাইড',fn:drawRide,p:{v:'bike',seed:6,sky:['#0f3d4a','#2a8a86','#f4e4b0'],sun:'#fff6d0',far:'#1c5258',ground:'#0d2a30',road:'#173a40',line:'#fff6d0',car:'#071a1e',accent:'#f4c95d',light:'#ffffff'}}
+];
+const CATS=[['all','সব'],['nature','প্রকৃতি'],['gradient','গ্রেডিয়েন্ট'],['islamic','ইসলামিক'],['ride','গাড়ি ও বাইক'],['mine','আমার ছবি']];
+const CATNAME={nature:'প্রকৃতি',gradient:'গ্রেডিয়েন্ট',islamic:'ইসলামিক',ride:'গাড়ি ও বাইক',mine:'আমার ছবি'};
+
+const gridEl=document.getElementById('grid'),chipsEl=document.getElementById('chips');
+const viewer=document.getElementById('viewer'),stage=document.getElementById('vstage'),vname=document.getElementById('vname');
+let cur='all',list=[],idx=0;
+
+ITEMS.forEach(it=>{
+  const cv=document.createElement('canvas');cv.width=360;cv.height=780;
+  const c=cv.getContext('2d');c.scale(360/W,780/H);
+  try{it.fn(c,it.p)}catch(e){}
+  it.thumb=cv;
+});
+
+function render(){
+  list=ITEMS.filter(i=>cur==='all'||i.cat===cur);
+  gridEl.textContent='';
+  if(!list.length){const e=document.createElement('p');e.className='note';e.style.gridColumn='1/-1';e.textContent='এখনো কোনো ছবি নেই। উপরের “নিজের ছবি যোগ করুন” বাটনে চাপ দিয়ে গ্যালারি থেকে ছবি বাছুন।';gridEl.appendChild(e)}
+  list.forEach((it,i)=>{
+    const b=document.createElement('button');b.className='card';b.type='button';b.setAttribute('aria-label',it.name+' ওয়ালপেপার খুলুন');
+    b.appendChild(it.thumb);
+    const s=document.createElement('span');s.textContent=it.name;
+    const m=document.createElement('small');m.textContent=CATNAME[it.cat];s.appendChild(m);
+    b.appendChild(s);b.addEventListener('click',()=>openAt(i));
+    gridEl.appendChild(b);
+  });
+}
+CATS.forEach(([k,label])=>{
+  const b=document.createElement('button');b.className='chip';b.type='button';b.textContent=label;b.dataset.k=k;
+  b.setAttribute('aria-pressed',k===cur?'true':'false');
+  b.addEventListener('click',()=>setCat(k));
+  chipsEl.appendChild(b);
+});
+render();
+
+function showBig(){
+  const it=list[idx];vname.textContent=it.name;vdel.hidden=!it.url;vdel.dataset.arm='';vdel.textContent='মুছুন';
+  stage.textContent='';const p=document.createElement('p');p.textContent='ছবি তৈরি হচ্ছে…';stage.appendChild(p);
+  const token=++showBig.t;
+  setTimeout(()=>{
+    if(token!==showBig.t)return;
+    const img=new Image();img.alt=it.name+' ওয়ালপেপার';
+    if(it.url){img.src=it.url}else{
+      const cv=document.createElement('canvas');cv.width=W;cv.height=H;
+      try{it.fn(cv.getContext('2d'),it.p)}catch(e){}
+      img.src=cv.toDataURL('image/png');
+    }
+    stage.textContent='';stage.appendChild(img);
+  },30);
+}
+showBig.t=0;
+function openAt(i){idx=i;viewer.hidden=false;showBig();document.getElementById('vclose').focus()}
+function step(d){idx=(idx+d+list.length)%list.length;showBig()}
+document.getElementById('vclose').addEventListener('click',()=>{viewer.hidden=true;showBig.t++});
+document.getElementById('vprev').addEventListener('click',()=>step(-1));
+document.getElementById('vnext').addEventListener('click',()=>step(1));
+document.addEventListener('keydown',e=>{
+  if(viewer.hidden)return;
+  if(e.key==='Escape'){viewer.hidden=true;showBig.t++}
+  if(e.key==='ArrowLeft')step(-1);
+  if(e.key==='ArrowRight')step(1);
+});
+
+/* ---------- নিজের ছবি (এই ফোনের ব্রাউজারে জমা থাকে) ---------- */
+const fileEl=document.getElementById('file'),vdel=document.getElementById('vdel');
+function idb(){return new Promise((res,rej)=>{try{const r=indexedDB.open('mu-wallpaper',1);r.onupgradeneeded=()=>r.result.createObjectStore('imgs',{keyPath:'id',autoIncrement:true});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}})}
+async function dbAll(){const d=await idb();return new Promise((res,rej)=>{const q=d.transaction('imgs').objectStore('imgs').getAll();q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)})}
+async function dbAdd(url){const d=await idb();return new Promise((res,rej)=>{const q=d.transaction('imgs','readwrite').objectStore('imgs').add({url});q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)})}
+async function dbDel(id){const d=await idb();return new Promise((res,rej)=>{const q=d.transaction('imgs','readwrite').objectStore('imgs').delete(id);q.onsuccess=()=>res();q.onerror=()=>rej(q.error)})}
+function setCat(k){cur=k;[...chipsEl.children].forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k?'true':'false'));render()}
+function loadImg(url){return new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=url})}
+function cover(img,w,h){const cv=document.createElement('canvas');cv.width=w;cv.height=h;const s=Math.max(w/img.width,h/img.height);cv.getContext('2d').drawImage(img,(w-img.width*s)/2,(h-img.height*s)/2,img.width*s,img.height*s);return cv}
+async function makeMine(rec){const img=await loadImg(rec.url);ITEMS.push({cat:'mine',name:'আমার ছবি',id:rec.id,url:rec.url,thumb:cover(img,360,780)})}
+document.getElementById('addbtn').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fileEl.click()}});
+fileEl.addEventListener('change',async()=>{
+  for(const f of fileEl.files){
+    try{
+      const url=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});
+      const j=cover(await loadImg(url),W,H).toDataURL('image/jpeg',.9);
+      let id=null;try{id=await dbAdd(j)}catch(e){}
+      await makeMine({id,url:j});
+    }catch(e){}
+  }
+  fileEl.value='';setCat('mine');
+});
+vdel.addEventListener('click',async()=>{
+  if(vdel.dataset.arm!=='1'){vdel.dataset.arm='1';vdel.textContent='আবার চাপুন';return}
+  const it=list[idx];
+  try{if(it.id!=null)await dbDel(it.id)}catch(e){}
+  ITEMS.splice(ITEMS.indexOf(it),1);viewer.hidden=true;showBig.t++;render();
+});
+(async()=>{try{const all=await dbAll();for(const r of all)await makeMine(r);if(all.length)render()}catch(e){}})();
+</script>
+
+</body>
+</html>

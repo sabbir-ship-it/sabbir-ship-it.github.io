@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MOST UNIQUE APPS</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#f2f5f3; --fg:#13201c; --muted:#5b6c66; --surface:#ffffff; --line:#d5deda;
+  --accent:#0f7a66; --on-accent:#ffffff;
+  --font:'Hind Siliguri','Noto Sans Bengali','Segoe UI',system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0c1311; --fg:#e6efec; --muted:#93a59f; --surface:#16201d; --line:#26332f; --accent:#3fc3a6; --on-accent:#06201a; color-scheme:dark}
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--fg); font-family:var(--font); font-size:16px; line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-top:max(28px, env(safe-area-inset-top, 0px));
+  padding-bottom:max(40px, env(safe-area-inset-bottom, 0px));
+}
+.wrap{max-width:900px; margin:0 auto}
+h1{font-size:2rem; line-height:1.15; margin:0 0 8px; font-weight:700; letter-spacing:.01em; text-wrap:balance}
+.lead{margin:0 0 28px; color:var(--muted); max-width:46ch}
+.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap:16px}
+.app{
+  display:flex; flex-direction:column; min-width:0; text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--line); border-radius:18px; overflow:hidden;
+}
+.app:focus-visible{outline:3px solid var(--accent); outline-offset:3px}
+.thumb{height:150px; display:block}
+.body{display:flex; flex-direction:column; gap:6px; padding:16px}
+.body h2{margin:0; font-size:1.2rem; line-height:1.25}
+.body p{margin:0; color:var(--muted); font-size:.94rem}
+.open{margin-top:6px; font-weight:600; color:var(--accent)}
+.soon{border-style:dashed; background:transparent; justify-content:center; align-items:center; text-align:center; min-height:150px; padding:20px; color:var(--muted)}
+footer{margin-top:36px; color:var(--muted); font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>MOST UNIQUE APPS</h1>
+  <p class="lead">আমার বানানো ছোট ছোট অ্যাপ। যেকোনোটাতে চাপ দিন, সাথে সাথে ফোনেই চলবে।</p>
+
+  <div class="grid">
+
+    <!-- নতুন অ্যাপ যোগ করতে নিচের <a class="app"> ... </a> অংশটা কপি করে এখানে পেস্ট করুন।
+         তারপর href, ছবির রং (background), নাম আর বর্ণনা বদলে দিন। -->
+    <a class="app" href="wallpaper.html">
+      <span class="thumb" style="background:linear-gradient(160deg,#2a1b4a 0%,#c2456a 55%,#ffb26b 100%)"></span>
+      <span class="body">
+        <h2>MOST UNIQUE WALLPAPER</h2>
+        <p>প্রকৃতি, গ্রেডিয়েন্ট, ইসলামিক আর গাড়ি-বাইকের ২৪টি ওয়ালপেপার।</p>
+        <span class="open">খুলুন →</span>
+      </span>
+    </a>
+
+    <div class="app soon">
+      <span>আরও অ্যাপ আসছে…</span>
+    </div>
+
+  </div>
+
+  <footer>ফোনে অ্যাপের মতো রাখতে: Chrome মেনু (⋮) → “Add to Home screen”।</footer>
+</div>
+</body>
+</html>
