@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MOST UNIQUE APPS</title>
+<meta name="description" content="আমার বানানো ছোট ছোট অ্যাপ ও গেম। ফ্রি, ইনস্টল ছাড়াই ফোনে চলে।">
+<meta name="theme-color" content="#0b0d12">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: sticky bar, oversized wordmark hero with search, one featured app, then a card grid that grows as apps are added */
+:root{
+  --bg:#eceef2; --ink:#0e1116; --muted:#556070; --surface:#ffffff; --line:#d8dde5;
+  --accent:#e5452b; --on-accent:#ffffff; --soft:#f6f7f9;
+  --disp:'Space Grotesk','Hind Siliguri',system-ui,sans-serif;
+  --font:'Hind Siliguri','Noto Sans Bengali','Segoe UI',system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0b0d12; --ink:#eef1f6; --muted:#98a2b3; --surface:#141821; --line:#252b37; --accent:#ff6a4d; --on-accent:#1b0a05; --soft:#10141b; color-scheme:dark}
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--font); font-size:16px; line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-bottom:max(40px, env(safe-area-inset-bottom, 0px));
+}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top, 0px); background:var(--bg); z-index:20}
+.wrap{max-width:1040px; margin:0 auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent); outline-offset:3px}
+
+.bar{
+  position:sticky; top:env(safe-area-inset-top, 0px); z-index:15; background:var(--bg);
+  display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0;
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex; align-items:center; gap:10px; font-family:var(--disp); font-weight:700; letter-spacing:.06em; font-size:.88rem; text-decoration:none}
+.mark{width:30px; height:30px; border-radius:9px; background:var(--accent); display:grid; place-items:center}
+.mark svg{width:18px; height:18px; fill:var(--on-accent)}
+.pill{
+  font:inherit; font-size:.9rem; font-weight:600; padding:8px 16px; border-radius:999px; cursor:pointer;
+  border:1.5px solid var(--ink); background:transparent; color:var(--ink);
+}
+.pill:hover{background:var(--ink); color:var(--bg)}
+
+.hero{padding:40px 0 26px}
+.eyebrow{display:inline-block; font-size:.82rem; font-weight:600; letter-spacing:.02em; color:var(--muted); margin:0 0 14px}
+.eyebrow b{color:var(--accent)}
+h1{
+  font-family:var(--disp); font-weight:700; margin:0 0 18px; text-transform:uppercase;
+  font-size:clamp(3rem, 15vw, 7rem); line-height:.88; letter-spacing:-.045em;
+}
+h1 span{color:var(--accent)}
+.sub{margin:0 0 26px; max-width:44ch; color:var(--muted); font-size:1.05rem}
+.search{
+  display:flex; align-items:center; gap:10px; background:var(--surface); border:1.5px solid var(--line);
+  border-radius:16px; padding:0 16px; max-width:520px;
+}
+.search:focus-within{border-color:var(--accent)}
+.search svg{width:20px; height:20px; flex:0 0 auto; stroke:var(--muted); fill:none; stroke-width:2; stroke-linecap:round}
+.search input{
+  flex:1; min-width:0; font:inherit; font-size:1rem; color:var(--ink); background:transparent; border:0; outline:0; padding:15px 0;
+}
+.search input::placeholder{color:var(--muted)}
+
+.chips{display:flex; gap:8px; overflow-x:auto; padding:4px 0 18px; scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:0 0 auto; font:inherit; font-size:.92rem; font-weight:500; padding:8px 16px; border-radius:999px; cursor:pointer;
+  border:1px solid var(--line); background:var(--surface); color:var(--ink);
+}
+.chip[aria-pressed="true"]{background:var(--ink); border-color:var(--ink); color:var(--bg)}
+
+.sec{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:26px 0 14px}
+.sec h2{margin:0; font-size:1.25rem; font-weight:700}
+.sec small{color:var(--muted); font-size:.88rem}
+
+.art{
+  position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; --pw:78px;
+}
+.phones{display:flex; align-items:center; justify-content:center}
+.ph{
+  width:var(--pw); height:calc(var(--pw) * 2.1); border-radius:calc(var(--pw) * .24); flex:0 0 auto;
+  border:3px solid rgba(255,255,255,.88); box-shadow:0 14px 30px rgba(0,0,0,.35); position:relative;
+}
+.ph::after{content:""; position:absolute; top:6px; left:50%; width:26%; height:5px; border-radius:4px; background:rgba(255,255,255,.7); transform:translateX(-50%)}
+.ph:nth-child(1){transform:rotate(-9deg) translateX(calc(var(--pw) * .22))}
+.ph:nth-child(2){transform:translateY(calc(var(--pw) * -.1)) scale(1.1); z-index:1}
+.ph:nth-child(3){transform:rotate(9deg) translateX(calc(var(--pw) * -.22))}
+.initial{font-family:var(--disp); font-weight:700; font-size:4rem; color:rgba(255,255,255,.92)}
+
+.feature{
+  display:grid; grid-template-columns:minmax(0,1fr); background:var(--surface); border:1px solid var(--line);
+  border-radius:24px; overflow:hidden;
+}
+.feature .art{min-height:290px; --pw:104px}
+.info{display:flex; flex-direction:column; gap:10px; padding:22px; min-width:0}
+.tag{
+  align-self:flex-start; font-size:.78rem; font-weight:600; letter-spacing:.03em; padding:3px 11px; border-radius:999px;
+  background:var(--soft); border:1px solid var(--line); color:var(--muted);
+}
+.info h3{margin:0; font-family:var(--disp); font-size:1.7rem; line-height:1.1; letter-spacing:-.02em; text-transform:uppercase; text-wrap:balance}
+.info p{margin:0; color:var(--muted)}
+.row{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 22px; border-radius:14px;
+  font:inherit; font-weight:600; font-size:1rem; text-decoration:none; cursor:pointer; border:1.5px solid var(--accent);
+  background:var(--accent); color:var(--on-accent);
+}
+.btn.ghost{background:transparent; color:var(--ink); border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+@media (min-width:760px){.feature{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)} .info{padding:32px; justify-content:center}}
+
+.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap:16px}
+.card{
+  display:flex; flex-direction:column; min-width:0; background:var(--surface); border:1px solid var(--line);
+  border-radius:20px; overflow:hidden; text-decoration:none;
+}
+.card .art{height:190px}
+.card .info{padding:16px 18px 18px}
+.card h3{font-size:1.15rem}
+.card .go{margin-top:6px; font-weight:600; color:var(--accent)}
+.card:hover{border-color:var(--ink)}
+.soon{border:1.5px dashed var(--line); background:transparent; justify-content:center; align-items:center; text-align:center; min-height:190px; padding:22px; gap:6px; color:var(--muted)}
+.soon b{color:var(--ink); font-size:1.05rem}
+.empty{grid-column:1/-1; color:var(--muted); padding:20px 0}
+
+.how{
+  display:grid; gap:14px; grid-template-columns:repeat(auto-fit, minmax(min(100%, 220px), 1fr)); margin:0; padding:0; list-style:none; counter-reset:s;
+}
+.how li{counter-increment:s; background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:16px 18px}
+.how li::before{content:counter(s); display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:var(--accent); color:var(--on-accent); font-weight:700; font-size:.9rem; margin-bottom:8px}
+.how b{display:block}
+.how span{color:var(--muted); font-size:.93rem}
+footer{margin-top:44px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:.88rem; display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px}
+.toast{
+  position:fixed; left:50%; bottom:calc(24px + env(safe-area-inset-bottom, 0px)); transform:translateX(-50%); z-index:30;
+  background:var(--ink); color:var(--bg); padding:10px 18px; border-radius:999px; font-weight:500; font-size:.93rem; max-width:calc(100% - 32px);
+}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+@media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s, transform .15s}.card:active{transform:scale(.985)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <a class="brand" href="./" aria-label="MOST UNIQUE APPS হোম">
+      <span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5l2.7 7.8 7.8 2.7-7.8 2.7L12 22.5l-2.7-7.8L1.5 12l7.8-2.7z"/></svg></span>
+      MOST UNIQUE APPS
+    </a>
+    <button class="pill" id="install" type="button" hidden>অ্যাপ ইনস্টল</button>
+  </div>
+
+  <section class="hero">
+    <p class="eyebrow"><b>ফ্রি</b> · ইনস্টল ছাড়াই ফোনে চলে</p>
+    <h1>Most<br>Unique <span>Apps</span></h1>
+    <p class="sub">আমার বানানো ছোট ছোট অ্যাপ ও গেম এক জায়গায়। পছন্দেরটায় চাপ দিলেই চালু।</p>
+    <label class="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <span class="sr">অ্যাপ খুঁজুন</span>
+      <input id="q" type="search" placeholder="অ্যাপ খুঁজুন…" autocomplete="off">
+    </label>
+  </section>
+
+  <div class="chips" id="chips" role="group" aria-label="ধরন বাছাই"></div>
+
+  <div id="featured"></div>
+
+  <div class="sec" id="apps"><h2 id="gridTitle">সব অ্যাপ</h2><small id="count"></small></div>
+  <div class="grid" id="grid"></div>
+
+  <div class="sec"><h2>ফোনে অ্যাপের মতো রাখুন</h2></div>
+  <ol class="how">
+    <li><b>Chrome-এ খুলুন</b><span>এই সাইটের লিংকটা Chrome-এ চালু করুন।</span></li>
+    <li><b>মেনুতে চাপ দিন</b><span>ওপরের ডানদিকের ⋮ চিহ্নে চাপ দিন।</span></li>
+    <li><b>ইনস্টল করুন</b><span>“Install app” বা “Add to Home screen” বাছুন।</span></li>
+  </ol>
+
+  <footer><span>© MOST UNIQUE APPS</span><span>নতুন অ্যাপ আসছে, মাঝে মাঝে ঘুরে যান।</span></footer>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* ============================================================
+   নতুন অ্যাপ যোগ করার নিয়ম:
+   নিচের APPS তালিকায় একটা { ... }, ব্লক কপি করে পেস্ট করুন, তারপর বদলান।
+   - name: অ্যাপের নাম        - url: ফাইলের নাম (যেমন game.html)
+   - cat: ধরন (যেমন গেম, টুলস)  - desc: ছোট বর্ণনা
+   - bg: ছবির পেছনের রং (CSS gradient)
+   - phones: তিনটা ফোনের রং (ওয়ালপেপার টাইপ অ্যাপের জন্য, না চাইলে বাদ দিন)
+   - featured: true দিলে ওপরে বড় করে দেখাবে (একটাতে দিন)
+   ============================================================ */
+const APPS=[
+  {
+    name:'MOST UNIQUE WALLPAPER', url:'wallpaper.html', cat:'ওয়ালপেপার', featured:true,
+    desc:'প্রকৃতি, গ্রেডিয়েন্ট, ইসলামিক আর গাড়ি-বাইকের ২৪টি ওয়ালপেপার। নিজের ছবিও যোগ করা যায়।',
+    bg:'linear-gradient(150deg,#1d1440 0%,#7a2a6f 55%,#ff8a5c 100%)',
+    phones:['linear-gradient(170deg,#2a1b4a,#c2456a 60%,#ffb26b)','radial-gradient(circle at 50% 35%,#13806a,#04231c 75%)','linear-gradient(180deg,#050b1f,#2d4a7a 70%,#101f3d)']
+  }
+];
+/* ============================================================ */
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let q='',cat='all';
+
+function art(a){
+  const inner=a.phones?'<div class="phones">'+a.phones.map(p=>'<span class="ph" style="background:'+p+'"></span>').join('')+'</div>'
+                      :'<span class="initial">'+esc(a.name.trim().charAt(0).toUpperCase())+'</span>';
+  return '<div class="art" style="background:'+a.bg+'">'+inner+'</div>';
+}
+function fullUrl(a){return new URL(a.url,location.href).href}
+function toast(t){const e=$('toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>e.hidden=true,2400)}
+async function copy(a){
+  const u=fullUrl(a);
+  try{await navigator.clipboard.writeText(u);toast('লিংক কপি হয়েছে')}catch(e){toast(u)}
+}
+
+function renderChips(){
+  const cats=['all',...new Set(APPS.map(a=>a.cat))];
+  $('chips').innerHTML=cats.map(c=>'<button class="chip" type="button" data-c="'+esc(c)+'" aria-pressed="'+(c===cat)+'">'+(c==='all'?'সব':esc(c))+'</button>').join('');
+  $('chips').hidden=cats.length<3;
+}
+function matches(a){
+  const hay=(a.name+' '+a.desc+' '+a.cat).toLowerCase();
+  return (cat==='all'||a.cat===cat)&&(!q||hay.includes(q.toLowerCase()));
+}
+function render(){
+  const filtering=!!q||cat!=='all';
+  const feat=APPS.find(a=>a.featured);
+  const showFeat=feat&&!filtering;
+  $('featured').innerHTML=showFeat?
+    '<div class="feature">'+art(feat)+'<div class="info"><span class="tag">'+esc(feat.cat)+'</span><h3>'+esc(feat.name)+'</h3><p>'+esc(feat.desc)+'</p>'+
+    '<div class="row"><a class="btn" href="'+esc(feat.url)+'">খুলুন →</a><button class="btn ghost" type="button" data-copy="'+APPS.indexOf(feat)+'">লিংক কপি</button></div></div></div>':'';
+  const list=APPS.filter(a=>matches(a)&&!(showFeat&&a===feat));
+  $('gridTitle').textContent=filtering?'ফলাফল':'আরও অ্যাপ';
+  $('count').textContent='মোট '+APPS.length+'টি অ্যাপ';
+  let html=list.map(a=>'<a class="card" href="'+esc(a.url)+'">'+art(a)+'<div class="info"><span class="tag">'+esc(a.cat)+'</span><h3>'+esc(a.name)+'</h3><p>'+esc(a.desc)+'</p><span class="go">খুলুন →</span></div></a>').join('');
+  if(filtering&&!list.length)html='<p class="empty">কিছু পাওয়া যায়নি। অন্য শব্দ দিয়ে খুঁজুন।</p>';
+  if(!filtering)html+='<div class="card soon"><b>আরও অ্যাপ আসছে</b><span>নতুন অ্যাপ বানানো হলে এখানে যোগ হবে।</span></div>';
+  $('grid').innerHTML=html;
+}
+$('q').addEventListener('input',e=>{q=e.target.value.trim();render()});
+$('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;cat=b.dataset.c;renderChips();render()});
+$('featured').addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(b)copy(APPS[+b.dataset.copy])});
+renderChips();render();
+
+let deferred=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;$('install').hidden=false});
+$('install').addEventListener('click',async()=>{if(!deferred)return;deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;$('install').hidden=true});
+window.addEventListener('appinstalled',()=>{$('install').hidden=true});
+if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
